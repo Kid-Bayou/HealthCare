@@ -5,20 +5,15 @@ import os
 import requests
 import google.generativeai as genai
 
-# Load environment variables
 load_dotenv()
 
 class HealthcarePALSystem:
     def __init__(self, uri: str, user: str, password: str, gemini_api_key: str):
-        # Connect to Neo4j
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
-        # Set the Gemini API key for AI-based insights
         self.gemini_api_key = gemini_api_key
-        # Configure Gemini API
         genai.configure(api_key=self.gemini_api_key)
 
     def close(self):
-        # Close Neo4j connection
         self.driver.close()
 
     def execute_query(self, query: str, parameters: Dict[str, Any] = None) -> List[Dict[str, Any]]:
@@ -111,10 +106,8 @@ class HealthcarePALSystem:
         return recommendation
 
     def generate_ai_insight(self, analysis: str) -> str:
-        # Use the existing authentication method
         model = genai.GenerativeModel("gemini-1.5-flash")
 
-        # Customizing the prompt to provide more specific instructions on shaping the AI's response
         prompt = (
             f"Given the following analysis of drug reactions for elderly patients taking COSENTYX (SECUKINUMAB), "
             "generate a detailed medical insight. The analysis includes reactions, outcomes, and risk factors. "
@@ -127,7 +120,6 @@ class HealthcarePALSystem:
             f"{analysis}"
         )
 
-        # Generate the content using the customized prompt
         response = model.generate_content(prompt)
 
         return response.text
@@ -148,7 +140,6 @@ def main():
         print("\nAnalysis of Drug for Elderly Patients:")
         print(analysis)
 
-        # Generate AI insight based on the drug analysis
         ai_insight = pal_system.generate_ai_insight(analysis)
         print("\nAI-Generated Insight:")
         print(ai_insight)
