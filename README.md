@@ -111,24 +111,24 @@ When you enter a drug name, the system will output detailed information like:
 ### Example of Analysis:
 
 ```
-Step 1: Identifying cases involving elderly patients taking AFINITOR
-Found 5 cases of elderly patients taking AFINITOR
+Projects\HealthCare> py healthcare_pal.py
 
-Step 2: Analyzing reactions and outcomes for AFINITOR in elderly patients
-Top 3 reactions: Pulmonary embolism (2 cases), Nausea (1 case), Dizziness (1 case)
-Top 3 outcomes: Death (2 cases), Recovery (1 case), Hospitalization (2 cases)
+Enter the name of the drug prescribed to an elderly patient: COSENTYX
 
-Step 3: Identifying potential drug interactions with AFINITOR
-Top 3 potentially interacting drugs: LIPITOR (2 cases), ASPIRIN (1 case), XELJANZ (1 case)
-
+Analysis of Drug for Elderly Patients:
+Step 1: Identifying cases involving elderly patients taking COSENTYX
+Found 8 cases of elderly patients taking COSENTYX (Primary Substance: SECUKINUMAB)
+Step 2: Analyzing reactions and outcomes for COSENTYX in elderly patients
+Top 3 reactions: Fall (5 cases), Aortic occlusion (3 cases), Cerebrovascular accident (3 cases)
+Top 3 outcomes: Hospitalization - Initial or Prolonged (31 cases), Other Serious (Important Medical Event) (20 cases), Death (7 cases)
+Step 3: Identifying potential drug interactions with COSENTYX      
+No interacting drugs found.
 Step 4: Calculating risk percentages
-Risk of hospitalization: 40.00%
-
+Risk of death: 87.50%
 Step 5: Generating recommendation based on analysis
-Recommendation: Based on the analysis of elderly patients taking AFINITOR:
-1. Common reactions include Pulmonary embolism, Nausea, and Dizziness. Monitor patients for these symptoms.
-2. The risk of hospitalization is approximately 40.00%.
-3. Be cautious when co-prescribing with LIPITOR, ASPIRIN, and XELJANZ, as these drugs were frequently associated with adverse events.
+Recommendation: Based on the analysis of elderly patients taking COSENTYX:
+1. Common reactions include Fall, Aortic occlusion, Cerebrovascular accident. Monitor patients for these symptoms.
+2. The risk of death is approximately 87.50%.
 4. Consider alternative therapies if the patient is at high risk, or ensure close monitoring during treatment.
 ```
 
